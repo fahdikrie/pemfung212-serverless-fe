@@ -9,14 +9,12 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import { login } from 'api/services/login';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-interface LoginFormData {
-  username: string;
-  password: string;
-}
+import { LoginFormData } from 'types/login';
 
 const LoginForm = () => {
   const {
@@ -27,8 +25,12 @@ const LoginForm = () => {
   const [isShowingPassword, setShowingPassword] = useState(false);
   const handleClick = () => setShowingPassword((prev) => !prev);
 
-  const onSubmit = (data: LoginFormData) => {
-    console.log(data);
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      await login(data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

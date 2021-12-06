@@ -17,3 +17,4 @@ export const addAxiosRequestHeader = (token: string): AxiosInstance => {
 };
 
 export default BASE_URL;
+export { instance };

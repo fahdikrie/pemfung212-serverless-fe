@@ -1,3 +1,5 @@
-export const signUp = (payload: any) => {
-  console.log(payload);
+import { SignUpData } from 'types/sign-up';
+
+export const signUp = (requestBody: SignUpData) => {
+  console.log(requestBody);
 };
