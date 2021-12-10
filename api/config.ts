@@ -3,8 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 const BASE_URL = process.env.NEXT_PUBLIC_LAMBDA_BASE_URL;
 
 let instance = axios.create({
-  baseURL: BASE_URL,
-  timeout: 1000,
+  baseURL: 'https://cors-bbbadi.herokuapp.com/' + BASE_URL,
 });
 
 export const addAxiosRequestHeader = (token: string): AxiosInstance => {

@@ -18,6 +18,6 @@ export const loadUser = (): UserData | null => {
   if (typeof window === 'undefined') return null;
 
   const userData = localStorage.getItem('pemfung212');
-  if (!userData) return JSON.parse(userData as string);
+  if (userData) return JSON.parse(userData as string);
   return null;
 };

@@ -14,7 +14,13 @@ const Home: NextPage = () => {
   useEffect(() => {
     if (!checkIfObjectEmpty(user)) setLoggedIn(true);
     else setLoggedIn(false);
+
+    console.log(user);
   }, [user]);
+
+  useEffect(() => {
+    console.log('isLoggedIn', isLoggedIn);
+  }, [isLoggedIn]);
 
   return (
     <Box
