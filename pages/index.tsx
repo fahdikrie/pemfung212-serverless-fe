@@ -2,10 +2,11 @@ import { Box, Heading } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
+import { checkIfObjectEmpty } from 'helpers/util';
 import useUserData from 'hooks/useUserData';
 import LoginForm from 'components/LoginForm';
 import Profile from 'components/Profile';
-import { checkIfObjectEmpty } from 'helpers/util';
+import { UserData } from 'types/user';
 
 const Home: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -35,7 +36,7 @@ const Home: NextPage = () => {
       <Heading color="white" mb="1.5rem">
         Serverless Auth Demo
       </Heading>
-      {isLoggedIn ? <Profile /> : <LoginForm />}
+      {isLoggedIn ? <Profile user={user as UserData} /> : <LoginForm />}
     </Box>
   );
 };

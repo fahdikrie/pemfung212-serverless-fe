@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormErrorMessage,
@@ -39,11 +40,14 @@ const LoginForm = () => {
     <Stack spacing={4} padding="1rem" background="white" borderRadius="5px">
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={!!errors.username}>
-          <FormLabel htmlFor="username">Username</FormLabel>
+          <FormLabel id="username" htmlFor="username">
+            Username
+          </FormLabel>
           <InputGroup size="md">
             <Input
               pr="15rem"
               type="text"
+              id="username"
               placeholder="Enter username"
               {...register('username', {
                 required: 'This is required',
@@ -56,10 +60,13 @@ const LoginForm = () => {
         </FormControl>
 
         <FormControl mt="1rem" isInvalid={!!errors.password}>
-          <FormLabel htmlFor="password">Password</FormLabel>
+          <FormLabel id="password" htmlFor="password">
+            Password
+          </FormLabel>
           <InputGroup size="md">
             <Input
               pr="15rem"
+              id="password"
               type={isShowingPassword ? 'text' : 'password'}
               placeholder="Enter password"
               {...register('password', {
@@ -87,12 +94,12 @@ const LoginForm = () => {
           Submit
         </Button>
 
-        <Text mt="1rem" textAlign="center">
+        <Box mt="1rem" textAlign="center">
           Don&apos;t have an account yet?{' '}
           <Text fontWeight="bold" cursor="pointer" d="inline">
             <Link href="/sign-up">Sign up.</Link>
           </Text>
-        </Text>
+        </Box>
       </form>
     </Stack>
   );
