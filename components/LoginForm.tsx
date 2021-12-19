@@ -14,11 +14,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { LoginFormData } from 'types/login';
+import { LoginFormData, LoginProps } from 'types/login';
 import { login } from 'api/services/login';
 import { storeUser } from 'helpers/user';
 
-const LoginForm = () => {
+const LoginForm = ({ setLoggedIn }: LoginProps) => {
   const {
     handleSubmit,
     register,
@@ -31,6 +31,7 @@ const LoginForm = () => {
     try {
       const { data } = await login(formData);
       storeUser(await data.user);
+      setLoggedIn(true);
     } catch (err) {
       console.log(err);
     }
