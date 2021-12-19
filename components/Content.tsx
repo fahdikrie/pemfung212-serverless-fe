@@ -1,4 +1,6 @@
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
+import { CodeBlock, atomOneLight } from 'react-code-blocks';
+import { useState } from 'react';
 
 import { clearUser } from 'helpers/user';
 import { ContentProps, ButtonProps } from 'types/content';
@@ -10,6 +12,8 @@ const Button = ({ children, onClick, colorScheme }: ButtonProps) => (
 );
 
 const Content = ({ setLoggedIn, username }: ContentProps): JSX.Element => {
+  const [activeContent, setActiveContent] = useState(null);
+
   const onLogout = () => {
     clearUser();
     setLoggedIn(false);
@@ -38,6 +42,10 @@ const Content = ({ setLoggedIn, username }: ContentProps): JSX.Element => {
         <Button colorScheme="yellow">Hello World!</Button>
         <Button colorScheme="green">Pokemon</Button>
       </Flex>
+
+      <Box>
+        <CodeBlock text="" language="json" theme={atomOneLight} />
+      </Box>
     </>
   );
 };
