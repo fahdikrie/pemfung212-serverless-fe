@@ -7,6 +7,6 @@ export interface ContentProps {
 
 export interface ButtonProps {
   children: string;
-  colorScheme?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  colorScheme: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }

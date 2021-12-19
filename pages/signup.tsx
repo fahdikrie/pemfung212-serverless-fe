@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 
 import useUserData from 'hooks/useUserData';
 import SignUpForm from 'components/SignUpForm';
-import { checkIfObjectEmpty } from 'helpers/util';
+import { checkIfObjectEmpty } from 'helpers/utils';
 
 const SignUp: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);

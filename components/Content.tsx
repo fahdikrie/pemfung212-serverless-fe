@@ -5,25 +5,31 @@ import {
   Skeleton,
   Text,
 } from '@chakra-ui/react';
-import { CodeBlock, atomOneLight } from 'react-code-blocks';
 import { useState } from 'react';
+import { CodeBlock, atomOneLight } from 'react-code-blocks';
 
 import { clearUser } from 'helpers/user';
+import { fetchGuard } from 'helpers/utils';
 import { ContentProps, ButtonProps } from 'types/content';
-import { profile as fetchProfile } from 'api/services/profile';
-import { users as fetchUsers } from 'api/services/users';
+
 import { helloWorld as fetchHelloWorld } from 'api/services/hello-world';
 import { pokedex as fetchPokedex } from 'api/services/pokedex';
-
-const Button = ({ children, onClick, colorScheme }: ButtonProps) => (
-  <ChakraButton mx="1rem" onClick={onClick} colorScheme={colorScheme}>
-    {children}
-  </ChakraButton>
-);
+import { profile as fetchProfile } from 'api/services/profile';
+import { users as fetchUsers } from 'api/services/users';
 
 const Content = ({ setLoggedIn, username }: ContentProps): JSX.Element => {
   const [activeContent, setActiveContent] = useState<string | null>(null);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
+
+  const Button = ({ children, onClick, colorScheme }: ButtonProps) => (
+    <ChakraButton
+      mx="1rem"
+      onClick={fetchGuard(onClick, isLoading)}
+      colorScheme={colorScheme}
+    >
+      {children}
+    </ChakraButton>
+  );
 
   const onFetchProfile = async () => {
     try {
