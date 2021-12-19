@@ -8,12 +8,12 @@ import {
   InputRightElement,
   Stack,
 } from '@chakra-ui/react';
-import { signUp } from 'api/services/sign-up';
+import { signUp } from 'api/services/signup';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { SignUpFormData } from 'types/sign-up';
+import { SignUpFormData } from 'types/signup';
 
 const LoginForm = () => {
   const {
