@@ -1,5 +1,12 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 
-interface ContentProps {
+export interface ContentProps {
   setLoggedIn: Dispatch<SetStateAction<boolean>>;
+  username: string | undefined;
+}
+
+export interface ButtonProps {
+  children: string;
+  colorScheme?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }

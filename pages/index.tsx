@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       {!isLoggedIn ? (
         <LoginForm {...childrenProps} />
       ) : (
-        <Content {...childrenProps} />
+        <Content username={user?.username} {...childrenProps} />
       )}
     </Box>
   );
