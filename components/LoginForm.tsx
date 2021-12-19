@@ -25,6 +25,7 @@ const LoginForm = ({ setLoggedIn }: LoginProps) => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>();
   const [isShowingPassword, setShowingPassword] = useState(false);
+
   const handleClick = () => setShowingPassword((prev) => !prev);
 
   const onSubmit = async (formData: LoginFormData) => {
@@ -98,7 +99,7 @@ const LoginForm = ({ setLoggedIn }: LoginProps) => {
         <Box mt="1rem" textAlign="center">
           Don&apos;t have an account yet?{' '}
           <Text fontWeight="bold" cursor="pointer" d="inline">
-            <Link href="/sign-up">Sign up.</Link>
+            <Link href="/signup">Sign up.</Link>
           </Text>
         </Box>
       </form>

@@ -7,7 +7,7 @@ import useUserData from 'hooks/useUserData';
 import SignUpForm from 'components/SignUpForm';
 import { checkIfObjectEmpty } from 'helpers/util';
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
   const user = useUserData();
@@ -35,4 +35,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default SignUp;
