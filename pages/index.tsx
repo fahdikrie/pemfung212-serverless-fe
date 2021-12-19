@@ -33,6 +33,7 @@ const Home: NextPage = () => {
       <Heading color="white" mb="1.5rem">
         Serverless Auth Demo
       </Heading>
+
       {!isLoggedIn ? (
         <LoginForm {...childrenProps} />
       ) : (

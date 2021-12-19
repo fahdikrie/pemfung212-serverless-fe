@@ -1,4 +1,4 @@
-import { addAxiosRequestHeader } from 'api/config';
+import { addAxiosRequestHeader, removeAxiosRequestHeader } from 'api/config';
 import { UserData } from 'types/user';
 
 export const storeUser = (user: UserData) => {
@@ -11,6 +11,7 @@ export const storeUser = (user: UserData) => {
 export const clearUser = () => {
   if (typeof window === 'undefined') return;
 
+  removeAxiosRequestHeader();
   localStorage.removeItem('pemfung212');
 };
 
