@@ -5,9 +5,9 @@ import type { NextPage } from 'next';
 
 import useUserData from 'hooks/useUserData';
 import SignUpForm from 'components/SignUpForm';
-import { checkIfObjectEmpty } from 'helpers/util';
+import { checkIfObjectEmpty } from 'helpers/utils';
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
   const user = useUserData();
@@ -30,9 +30,10 @@ const Home: NextPage = () => {
       <Heading color="white" mb="1.5rem">
         Serverless Auth Demo
       </Heading>
+
       {!isLoggedIn ? <SignUpForm /> : router.replace('/')}
     </Box>
   );
 };
 
-export default Home;
+export default SignUp;

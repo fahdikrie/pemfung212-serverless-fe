@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Head>
-        <title>Tugas Pemfung – FAAS</title>
+        <title>Tugas Pemfung — Auth FaaS</title>
       </Head>
       <Component {...pageProps} />
     </ChakraProvider>

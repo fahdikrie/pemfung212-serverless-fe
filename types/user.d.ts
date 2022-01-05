@@ -7,5 +7,5 @@ export interface UserData {
   username: string;
   password: string;
   token?: string;
-  refreshtoken?: string;
+  refresh_token?: string;
 }

@@ -2,19 +2,26 @@ import { Box, Heading } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
+import { checkIfObjectEmpty } from 'helpers/utils';
 import useUserData from 'hooks/useUserData';
 import LoginForm from 'components/LoginForm';
-import Profile from 'components/Profile';
-import { checkIfObjectEmpty } from 'helpers/util';
+import Content from 'components/Content';
+import { addAxiosRequestHeader } from 'api/config';
 
 const Home: NextPage = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const user = useUserData();
 
   useEffect(() => {
-    if (!checkIfObjectEmpty(user)) setLoggedIn(true);
-    else setLoggedIn(false);
+    if (!checkIfObjectEmpty(user)) {
+      setLoggedIn(true);
+      addAxiosRequestHeader(user?.token as string);
+    } else setLoggedIn(false);
   }, [user]);
+
+  const childrenProps = {
+    setLoggedIn: setLoggedIn,
+  };
 
   return (
     <Box
@@ -29,7 +36,12 @@ const Home: NextPage = () => {
       <Heading color="white" mb="1.5rem">
         Serverless Auth Demo
       </Heading>
-      {isLoggedIn ? <Profile /> : <LoginForm />}
+
+      {!isLoggedIn ? (
+        <LoginForm {...childrenProps} />
+      ) : (
+        <Content username={user?.username} {...childrenProps} />
+      )}
     </Box>
   );
 };
